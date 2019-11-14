@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Book Bees</string>
+    <string name="welcome_to_start">Welcome to Book Bees</string>
+    <string name="new_user">Sign Up</string>
+    <string name="main_page">Main Page</string>
+    <string name="regSubmit">Register</string>
+    <string name="display_name">Display Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="logout">Log Out</string>
+    <string name="title_activity_home_page">HomePage</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>
