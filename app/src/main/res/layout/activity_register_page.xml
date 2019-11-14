@@ -26,7 +26,8 @@
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:text="@string/display_name"
+        android:hint="@string/display_name"
+        android:autofillHints="@string/display_name"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="19dp" />
 
@@ -35,10 +36,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="155dp"
-        android:autofillHints=""
+        android:hint="@string/email"
+        android:autofillHints="@string/email"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="@string/email"
+
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="19dp" />
 
@@ -47,6 +49,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="227dp"
+        android:hint="@string/password"
+        android:autofillHints="@string/password"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintTop_toTopOf="parent"

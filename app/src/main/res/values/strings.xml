@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Book Bees</string>
     <string name="welcome_to_start">Welcome to Book Bees</string>
-    <string name="new_user">Sign Up</string>
+    <string name="new_user">New User</string>
     <string name="main_page">Main Page</string>
     <string name="regSubmit">Register</string>
     <string name="display_name">Display Name</string>
@@ -12,4 +12,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="loginButton">Login</string>
+    <string name="existing_user">Existing User</string>
 </resources>

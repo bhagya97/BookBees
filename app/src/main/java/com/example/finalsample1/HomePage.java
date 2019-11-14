@@ -28,7 +28,7 @@ public class HomePage extends AppCompatActivity {
 
         mainBar = (Toolbar) findViewById(R.id.userMenu);
         setSupportActionBar(mainBar);
-        getSupportActionBar().setTitle("User Home Page");
+        getSupportActionBar().setTitle("Home");
     }
 
 
