@@ -37,7 +37,10 @@ public class StartPage extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
+                Intent regIntent = new Intent(StartPage.this, UserLogin.class);
+                startActivity(regIntent);
+
             }
         });
 

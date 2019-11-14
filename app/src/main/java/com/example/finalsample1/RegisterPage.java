@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,6 +28,7 @@ public class RegisterPage extends AppCompatActivity {
     private Button regButton;
     private FirebaseAuth mAuth;
     private Toolbar regBar;
+    private ProgressDialog regProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +50,14 @@ public class RegisterPage extends AppCompatActivity {
                 String displayName = disName.getText().toString();
                 String userEmail = regEmail.getText().toString();
                 String userPass = regPass.getText().toString();
+                if (!TextUtils.isEmpty(displayName) || !TextUtils.isEmpty(userEmail) || !TextUtils.isEmpty(userPass)) {
 
-                new_user(displayName,userEmail,userPass);
+                    regProgress.setTitle("Registering User");
+                    regProgress.setMessage("Please wait while we create your account!");
+                    regProgress.setCanceledOnTouchOutside(false);
+                    regProgress.show();
+                    new_user(displayName, userEmail, userPass);
+                }
 
             }
         });
@@ -57,6 +66,8 @@ public class RegisterPage extends AppCompatActivity {
         setSupportActionBar(mainBar);
         getSupportActionBar().setTitle("Create Account");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        regProgress = new ProgressDialog(this);
 
     }
 
@@ -69,16 +80,17 @@ public class RegisterPage extends AppCompatActivity {
 
                 if(task.isSuccessful()){
 
-                    Toast.makeText(RegisterPage.this,"Process", Toast.LENGTH_LONG).show();
+                    regProgress.dismiss();
+                    Toast.makeText(RegisterPage.this,"In Progress", Toast.LENGTH_LONG).show();
                     Intent btomIntent = new Intent(RegisterPage.this,HomePage.class);
                     startActivity(btomIntent);
                     finish();
-                    Toast.makeText(RegisterPage.this,"Success", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterPage.this,"Success!!", Toast.LENGTH_LONG).show();
 
 
                 } else {
-                    System.out.println("Y error");
-                    Toast.makeText(RegisterPage.this,"ERROR", Toast.LENGTH_LONG).show();
+                    regProgress.hide();
+                    Toast.makeText(RegisterPage.this,"ERROR!!", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -86,11 +98,5 @@ public class RegisterPage extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return true;
-    }
 
 }
