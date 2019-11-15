@@ -9,15 +9,9 @@
     <string name="password">Password</string>
     <string name="logout">Log Out</string>
     <string name="title_activity_home_page">HomePage</string>
-    <string name="title_messages">Messages</string>
-    <string name="title_find">Find</string>
-    <string name="title_profile">Profile</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
     <string name="loginButton">Login</string>
     <string name="existing_user">Existing User</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Message Screen</string>
-    <string name="hello_blank_fragment1">Search Screen</string>
-    <string name="hello_blank_fragment2">Profile Screen</string>
-
 </resources>

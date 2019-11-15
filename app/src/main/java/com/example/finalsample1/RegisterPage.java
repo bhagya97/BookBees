@@ -82,8 +82,11 @@ public class RegisterPage extends AppCompatActivity {
 
                     regProgress.dismiss();
                     Toast.makeText(RegisterPage.this,"In Progress", Toast.LENGTH_LONG).show();
-                    Intent btomIntent = new Intent(RegisterPage.this,HomePage.class);
+                    System.out.println("Before adapter");
+                    Intent btomIntent = new Intent(RegisterPage.this,SelectionActivity.class);
+                    System.out.println("After adapter");
                     startActivity(btomIntent);
+                    System.out.println("Before intent");
                     finish();
                     Toast.makeText(RegisterPage.this,"Success!!", Toast.LENGTH_LONG).show();
 
