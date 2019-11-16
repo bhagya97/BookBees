@@ -1,26 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".UserLogin">
 
     <include layout="@layout/menu_bar" android:id="@+id/loginBar"/>
 
-    <Button
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="182dp"
+        android:text="@string/welcome_to_start"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/loginEmailText"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/loginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:inputType="textEmailAddress"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/loginPassText"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_margin="10dp"
+            android:layout_below="@id/loginEmailText"
+            android:hint="Password"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/loginPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:inputType="textPassword"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_alignParentLeft="true"
         android:id="@+id/userLogin"
+        android:layout_below="@id/loginPassText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginLeft="70dp"
+
+        android:text="Login"/>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/registerBtn"
+        android:layout_below="@id/loginPassText"
+        android:layout_toRightOf="@id/userLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginLeft="60dp"
+        android:text="Sign up"/>
+
+
+
+
+
+
+   <!-- <Button
+        android:id="@+id/userLoginTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="138dp"
         android:layout_marginTop="341dp"
         android:text="@string/loginButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" /> -->
 
 
-    <EditText
-        android:id="@+id/loginEmail"
+    <!--<EditText
+        android:id="@+id/loginEmailTemp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="155dp"
@@ -30,9 +110,9 @@
         android:inputType="textEmailAddress"
 
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="19dp" />
+        tools:layout_editor_absoluteX="19dp" />-->
 
-    <EditText
+   <!--- <EditText
         android:id="@+id/loginPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,6 +122,6 @@
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="17dp" />
+        tools:layout_editor_absoluteX="17dp" />-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

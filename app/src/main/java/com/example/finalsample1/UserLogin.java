@@ -22,6 +22,7 @@ public class UserLogin extends AppCompatActivity {
 
     private EditText loginEmail, loginPass;
     private Button loginButton;
+    private Button signUp;
     private FirebaseAuth mAuth;
     private Toolbar loginBar;
     private ProgressDialog loginProgress;
@@ -34,6 +35,7 @@ public class UserLogin extends AppCompatActivity {
         loginEmail = (EditText) findViewById(R.id.loginEmail);
         loginPass = (EditText) findViewById(R.id.loginPass);
         loginButton = (Button) findViewById(R.id.userLogin);
+        signUp = (Button) findViewById(R.id.registerBtn);
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -58,6 +60,14 @@ public class UserLogin extends AppCompatActivity {
                     loginProgress.show();
                     loggeduser(userEmail, userPass);
                 }
+            }
+        });
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent regIntent = new Intent(UserLogin.this, RegisterPage.class);
+                startActivity(regIntent);
             }
         });
     }

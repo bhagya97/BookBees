@@ -31,9 +31,9 @@ public class HomePage extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+         /*FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment,new Message());
-        fragmentTransaction.commit();
+        fragmentTransaction.commit();*/
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -43,19 +43,21 @@ public class HomePage extends AppCompatActivity {
                 {
                     case R.id.navigation_messages :
                         fragmentTransaction.replace(R.id.fragment,new Message());
+                        menuItem.setChecked(true);
                         fragmentTransaction.commit();
-
                         Toast.makeText(HomePage.this, " messages", Toast.LENGTH_SHORT).show();
                         break;
                     case  R.id.navigation_find :
                         fragmentTransaction.replace(R.id.fragment,new Find());
                         Toast.makeText(HomePage.this, " find", Toast.LENGTH_SHORT).show();
+                        menuItem.setChecked(true);
                         fragmentTransaction.commit();
 
                         break;
                     case  R.id.navigation_profile :
                         fragmentTransaction.replace(R.id.fragment,new Profile());
                         Toast.makeText(HomePage.this, "Profile", Toast.LENGTH_SHORT).show();
+                        menuItem.setChecked(true);
                         fragmentTransaction.commit();
 
                         break;
@@ -68,7 +70,7 @@ public class HomePage extends AppCompatActivity {
 
         mainBar = (Toolbar) findViewById(R.id.userMenu);
         setSupportActionBar(mainBar);
-        getSupportActionBar().setTitle("Home");
+        getSupportActionBar().setTitle("Messages");
     }
 
 
