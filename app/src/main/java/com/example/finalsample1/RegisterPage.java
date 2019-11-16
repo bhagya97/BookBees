@@ -102,7 +102,7 @@ public class RegisterPage extends AppCompatActivity {
                             regProgress.dismiss();
                             System.out.println("Step 2 OK");
                             Toast.makeText(RegisterPage.this,"In Progress", Toast.LENGTH_LONG).show();
-                            Intent btomIntent = new Intent(RegisterPage.this,HomePage.class);
+                            Intent btomIntent = new Intent(RegisterPage.this,SelectionActivity.class);
                             btomIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(btomIntent);
                             finish();
