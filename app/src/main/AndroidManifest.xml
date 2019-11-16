@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CustomStyle">
+
         <activity android:name=".SelectionActivity"></activity>
-        <activity
-            android:name=".UserLogin"
-            android:parentActivityName=".StartPage" />
+        <activity android:name=".UserLogin"
+            android:parentActivityName=".StartPage"></activity>
         <activity android:name=".HomePage" />
         <activity
             android:name=".RegisterPage"

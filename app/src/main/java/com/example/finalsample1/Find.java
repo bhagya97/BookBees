@@ -3,11 +3,16 @@ package com.example.finalsample1;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ImageView;
 
 
 /**
@@ -16,6 +21,15 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Find extends Fragment {
+
+
+    //code changed 2019-11-15
+
+    private GridView gridView;
+    private ImageView imageView;
+
+
+    //End of today change
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -55,13 +69,30 @@ public class Find extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Search");
+        setHasOptionsMenu(true);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_find, container, false);
+
+
+
+        View view = inflater.inflate(R.layout.fragment_find, container, false);
+        GridView gridView = (GridView) view.findViewById(R.id.gridViewCustom);
+        gridView.setAdapter(new CustomGridViewAdapter(view.getContext()));
+        return view;
+
+
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.search_menu_items, menu);
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
+
 
 }

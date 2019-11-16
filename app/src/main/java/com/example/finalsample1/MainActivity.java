@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void sendtoStart() {
 
-        Intent intentStart = new Intent(MainActivity.this, StartPage.class);
+        Intent intentStart = new Intent(MainActivity.this, UserLogin.class);
         startActivity(intentStart);
         finish();
 
