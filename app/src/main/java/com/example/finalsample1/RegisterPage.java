@@ -21,6 +21,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class RegisterPage extends AppCompatActivity {
 
@@ -29,6 +33,7 @@ public class RegisterPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Toolbar regBar;
     private ProgressDialog regProgress;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,13 +77,41 @@ public class RegisterPage extends AppCompatActivity {
     }
 
 
-    private void new_user(String displayName, String userEmail, String userPass) {
+    private void new_user(final String displayName, String userEmail, String userPass) {
 
         mAuth.createUserWithEmailAndPassword(userEmail,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if(task.isSuccessful()){
+
+                    FirebaseUser curUser = FirebaseAuth.getInstance().getCurrentUser();
+                    String uid = curUser.getUid();
+                    mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
+
+                    HashMap<String, String> userMap = new HashMap<>();
+                    userMap.put("name",displayName);
+                    userMap.put("status","Available");
+                    userMap.put("image","default");
+                    userMap.put("thumb_image","default");
+                    System.out.println("Step 1 OK");
+
+                    mDatabase.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            regProgress.dismiss();
+                            System.out.println("Step 2 OK");
+                            Toast.makeText(RegisterPage.this,"In Progress", Toast.LENGTH_LONG).show();
+                            Intent btomIntent = new Intent(RegisterPage.this,HomePage.class);
+                            btomIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(btomIntent);
+                            finish();
+                            System.out.println("Step 3 OK");
+                        }
+                    });
+
+
+                    /*
 
                     regProgress.dismiss();
                     Toast.makeText(RegisterPage.this,"In Progress", Toast.LENGTH_LONG).show();
@@ -90,6 +123,8 @@ public class RegisterPage extends AppCompatActivity {
                     finish();
                     Toast.makeText(RegisterPage.this,"Success!!", Toast.LENGTH_LONG).show();
 
+
+                     */
 
                 } else {
                     regProgress.hide();

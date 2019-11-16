@@ -14,4 +14,9 @@
     <string name="title_notifications">Notifications</string>
     <string name="loginButton">Login</string>
     <string name="existing_user">Existing User</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Message Screen</string>
+    <string name="hello_blank_fragment1">Search Screen</string>
+    <string name="hello_blank_fragment2">Profile Screen</string>
 </resources>
