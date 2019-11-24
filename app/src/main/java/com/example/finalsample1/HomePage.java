@@ -31,9 +31,9 @@ public class HomePage extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-         /*FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment,new Message());
-        fragmentTransaction.commit();*/
+        fragmentTransaction.commit();
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -41,6 +41,7 @@ public class HomePage extends AppCompatActivity {
 
                 switch (menuItem.getItemId())
                 {
+
                     case R.id.navigation_messages :
                         fragmentTransaction.replace(R.id.fragment,new Message());
                         menuItem.setChecked(true);
@@ -61,6 +62,7 @@ public class HomePage extends AppCompatActivity {
                         fragmentTransaction.commit();
 
                         break;
+
                 }
 
                 return false;
@@ -97,6 +99,13 @@ public class HomePage extends AppCompatActivity {
 
             FirebaseAuth.getInstance().signOut();
             sendtoStart();
+
+        }
+        else if (item.getItemId() == R.id.listUsers){
+
+            Intent intentStart = new Intent(HomePage.this, AllUsers.class);
+            startActivity(intentStart);
+            //finish();
 
         }
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".ChatActivity">
+
+    <include
+        android:id="@+id/chatActivityBar"
+        layout="@layout/menu_bar" />
+
+    <ImageButton
+        android:id="@+id/addfiles"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/round_add_black_24dp" />
+
+    <EditText
+        android:id="@+id/entermsg"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/addfiles" />
+
+    <ImageButton
+        android:id="@+id/sendmsg"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/entermsg"
+        android:src="@drawable/round_send_black_24dp" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/message_swipe_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/entermsg"
+        android:layout_below="@+id/chatActivityBar">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/messageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+</RelativeLayout>

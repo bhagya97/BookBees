@@ -9,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CustomStyle">
-
-        <activity android:name=".SelectionActivity"></activity>
-        <activity android:name=".UserLogin"
-            android:parentActivityName=".StartPage"></activity>
+        <activity android:name=".AllUsers"
+            android:parentActivityName=".HomePage"></activity>
+        <activity android:name=".ChatActivity"
+            android:parentActivityName=".AllUsers"/>
+        <activity android:name=".SelectionActivity" />
+        <activity
+            android:name=".UserLogin"
+            android:parentActivityName=".StartPage" />
         <activity android:name=".HomePage" />
         <activity
             android:name=".RegisterPage"
