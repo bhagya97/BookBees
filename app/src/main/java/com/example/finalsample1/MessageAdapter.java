@@ -1,6 +1,7 @@
 package com.example.finalsample1;
 
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,25 +62,27 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
         String message_type = c.getType();
 
-        if (user_from.equals(current_User)){
+        try {
 
-            holder.messageText.setBackgroundColor(Color.WHITE);
-            holder.messageText.setTextColor(Color.BLACK);
-            holder.profileImage.setImageResource(R.drawable.baseline_face_black_18dp);
+            if (user_from.equals( current_User )) {
 
-
-        }else{
-
-            holder.messageText.setBackgroundResource(R.drawable.message_text_background);
-            holder.messageText.setTextColor(Color.WHITE);
+                holder.messageText.setBackgroundColor( Color.WHITE );
+                holder.messageText.setTextColor( Color.BLACK );
+                holder.profileImage.setImageResource( R.drawable.baseline_face_black_18dp );
 
 
-        }
+            } else {
 
-        //holder.messageText.setText(c.getMessage());
-        if(message_type.equals("text")) {
+                holder.messageText.setBackgroundResource( R.drawable.message_text_background );
+                holder.messageText.setTextColor( Color.WHITE );
 
-            holder.messageText.setText(c.getMessage());
+
+            }
+
+            //holder.messageText.setText(c.getMessage());
+            if (message_type.equals( "text" )) {
+
+                holder.messageText.setText( c.getMessage() );
             /*
             if (holder.messageImage != null) {
                 holder.messageImage.setVisibility(View.INVISIBLE);
@@ -88,26 +91,29 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
              */
 
 
-        } else {
+            } else {
 
 
+                if (holder.messageText != null) {
+                    holder.messageText.setVisibility( View.INVISIBLE );
+                }
 
-            if (holder.messageText != null) {
-                holder.messageText.setVisibility(View.INVISIBLE);
+
+                //Picasso.with(holder.profileImage.getContext()).load(c.getMessage())
+                //      .placeholder(R.drawable.baseline_face_black_18dp).into(holder.messageImage);
+
+                //Picasso.get().load(c.getMessage()).placeholder(R.drawable.baseline_image_black_24dp).into(holder.messageImage);
+
+                Picasso.get().load( c.getMessage() )
+                        .fit()
+                        .centerCrop()
+                        .placeholder( R.drawable.baseline_image_black_24dp )
+                        .into( holder.messageImage );
             }
 
+        } catch (NullPointerException e){
+            Log.d( "Fragments-OnStart","Error in Message Adapter, onBindViewHolder" );
 
-
-            //Picasso.with(holder.profileImage.getContext()).load(c.getMessage())
-              //      .placeholder(R.drawable.baseline_face_black_18dp).into(holder.messageImage);
-
-            //Picasso.get().load(c.getMessage()).placeholder(R.drawable.baseline_image_black_24dp).into(holder.messageImage);
-
-            Picasso.get().load(c.getMessage())
-                    .fit()
-                    .centerCrop()
-                    .placeholder(R.drawable.baseline_image_black_24dp)
-                    .into(holder.messageImage);
         }
 
 

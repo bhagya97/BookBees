@@ -194,6 +194,8 @@ public class Message extends Fragment {
 
                 System.out.println( "Step2 - MessageFragment" );
 
+                System.out.println( list_user_id);
+
                 mUsersDatabase.child(list_user_id).addValueEventListener(new ValueEventListener() {
 
                     @Override
@@ -201,38 +203,47 @@ public class Message extends Fragment {
 
                         if (dataSnapshot != null) {
 
-                            //System.out.println(dataSnapshot);
+                            System.out.println(dataSnapshot);
                             System.out.println( "Step2.1 - MessageFragment" );
 
-                            final String userName = dataSnapshot.child( "name" ).getValue().toString();
-                            String userThumb = dataSnapshot.child( "thumb_image" ).getValue().toString();
+                            try {
 
-                            System.out.println( "Step2.2 - MessageFragment" );
 
-                            if (dataSnapshot.hasChild( "online" )) {
+                                final String userName = dataSnapshot.child( "name" ).getValue().toString();
+                                String userThumb = dataSnapshot.child( "thumb_image" ).getValue().toString();
 
-                                System.out.println( "Step2.3 - MessageFragment" );
+                                System.out.println( userName );
 
-                                String userOnline = dataSnapshot.child( "online" ).getValue().toString();
-                                holder.setUserOnline( userOnline );
+                                System.out.println( "Step2.2 - MessageFragment" );
 
-                            }
+                                if (dataSnapshot.hasChild( "online" )) {
 
-                            holder.setName( userName );
-                            holder.setUserImage( userThumb, getContext() );
+                                    System.out.println( "Step2.3 - MessageFragment" );
 
-                            holder.mView.setOnClickListener( new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-
-                                    System.out.println( "Step3 - MessageFragment" );
-                                    Intent chatIntent = new Intent( getContext(), ChatActivity.class );
-                                    chatIntent.putExtra( "user_id", list_user_id );
-                                    chatIntent.putExtra( "user_name", userName );
-                                    startActivity( chatIntent );
+                                    String userOnline = dataSnapshot.child( "online" ).getValue().toString();
+                                    holder.setUserOnline( userOnline );
 
                                 }
-                            } );
+
+                                holder.setName( userName );
+                                holder.setUserImage( userThumb, getContext() );
+
+                                holder.mView.setOnClickListener( new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+
+                                        System.out.println( "Step3 - MessageFragment" );
+                                        Intent chatIntent = new Intent( getContext(), ChatActivity.class );
+                                        chatIntent.putExtra( "user_id", list_user_id );
+                                        chatIntent.putExtra( "user_name", userName );
+                                        startActivity( chatIntent );
+
+                                    }
+                                } );
+
+                            }catch (NullPointerException e){
+                                Log.d( "Fragments-OnStart","Error in datasnapshot username" );
+                            }
 
                         }
                         else {
