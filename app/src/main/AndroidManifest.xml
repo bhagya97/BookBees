@@ -9,18 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CustomStyle">
-
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-
-
         <activity android:name=".AllUsers"
             android:parentActivityName=".HomePage"></activity>
         <activity android:name=".ChatActivity"
             android:parentActivityName=".AllUsers"/>
         <activity android:name=".SelectionActivity" />
+        <activity android:name=".Tour1"/>
+        <activity android:name=".Tour2"/>
+        <activity android:name=".InitialProfile"/>
+        <activity android:name=".Genres"/>
+        <activity android:name=".SelectBooks"/>
         <activity
             android:name=".UserLogin"
             android:parentActivityName=".StartPage" />
@@ -36,6 +34,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

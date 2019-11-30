@@ -21,16 +21,6 @@ public class HomePage extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Toolbar mainBar;
     private BottomNavigationView bottomNavigationView;
-    private String lastQuery;
-
-
-    public String getLastQuery() {
-        return lastQuery;
-    }
-
-    public void setLastQuery(String lastQuery) {
-        this.lastQuery = lastQuery;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

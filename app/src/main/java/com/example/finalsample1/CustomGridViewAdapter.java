@@ -9,39 +9,49 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.io.Serializable;
-import java.io.SerializablePermission;
-import java.util.ArrayList;
-import java.util.List;
-
-public class CustomGridViewAdapter extends BaseAdapter implements Serializable {
+public class CustomGridViewAdapter extends BaseAdapter {
 
 
-    List<UserDetails> userDetailsListAdapter =new ArrayList<>();
+    public Integer[] mThumbIds = {
+            R.drawable.common_google_signin_btn_icon_disabled,
+            R.drawable.common_google_signin_btn_icon_disabled, R.drawable.common_google_signin_btn_icon_disabled,
+            R.drawable.common_google_signin_btn_icon_disabled, R.drawable.common_google_signin_btn_icon_disabled,
+            R.drawable.common_google_signin_btn_icon_disabled,
+            R.drawable.common_google_signin_btn_icon_disabled,
+            R.drawable.common_google_signin_btn_icon_disabled, R.drawable.common_google_signin_btn_icon_disabled,
+            R.drawable.common_google_signin_btn_icon_disabled, R.drawable.common_google_signin_btn_icon_disabled,
+            R.drawable.common_google_signin_btn_icon_disabled,
+            R.drawable.common_google_signin_btn_icon_disabled,
+            R.drawable.common_google_signin_btn_icon_disabled, R.drawable.common_google_signin_btn_icon_disabled,
+            R.drawable.common_google_signin_btn_icon_disabled, R.drawable.common_google_signin_btn_icon_disabled,
+            R.drawable.common_google_signin_btn_icon_disabled,
+    };
+    public String[] mThumbNames = {
+            "Bank", "Facility", "Gym", "Facility", "Facility", "Construct",
+            "Bank", "Facility", "Gym", "Facility", "Facility", "Construct",
+            "Bank", "Facility", "Gym", "Facility", "Facility", "Construct"
+
+    };
     private Context mContext;
 
     // Constructor
-
-    public CustomGridViewAdapter(List<UserDetails> userDetailsListAdapter, Context mContext) {
-        this.userDetailsListAdapter = userDetailsListAdapter;
-        this.mContext = mContext;
+    public CustomGridViewAdapter(Context c) {
+        mContext = c;
     }
 
     @Override
     public int getCount() {
-        return userDetailsListAdapter.size();
+        return mThumbIds.length;
     }
 
     @Override
     public Object getItem(int position) {
-        return userDetailsListAdapter.get(position);
+        return mThumbIds[position];
     }
 
     @Override
     public long getItemId(int position) {
-        return position;
+        return 0;
     }
 
     @Override
@@ -59,8 +69,7 @@ public class CustomGridViewAdapter extends BaseAdapter implements Serializable {
 
             // well set up the ViewHolder
             viewHolder = new ViewHolderItem();
-            viewHolder.profileName = (TextView) convertView.findViewById(R.id.profileName);
-            viewHolder.location = (TextView) convertView.findViewById(R.id.location);
+            viewHolder.textViewItem = (TextView) convertView.findViewById(R.id.textView);
 
             viewHolder.imageViewItem = (ImageView) convertView.findViewById(R.id.imageView);
             // store the holder with the view.
@@ -74,14 +83,12 @@ public class CustomGridViewAdapter extends BaseAdapter implements Serializable {
         }
 
         // object item based on the position
-        UserDetails userDetails=(UserDetails) this.getItem(position
-        );
-        // get the TextView from the ViewHolder and then set the text (item name) and tag (item ID) values
-        viewHolder.profileName.setText(userDetails.getProfileName());
-        viewHolder.location.setText(userDetails.getProfileLocation());
-        viewHolder.profileName.setTag(position);
 
-        viewHolder.imageViewItem.setImageBitmap(userDetails.getDecodedByte());
+        // get the TextView from the ViewHolder and then set the text (item name) and tag (item ID) values
+        viewHolder.textViewItem.setText(mThumbNames[position]);
+        viewHolder.textViewItem.setTag(position);
+
+        viewHolder.imageViewItem.setImageResource(mThumbIds[position]);
 
 
         return convertView;
@@ -91,8 +98,7 @@ public class CustomGridViewAdapter extends BaseAdapter implements Serializable {
     // our ViewHolder.
 // caches our TextView
     static class ViewHolderItem {
-        TextView profileName;
-        TextView location;
+        TextView textViewItem;
         ImageView imageViewItem;
     }
 
