@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Tour2">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Let's connect"
+            android:fontFamily="casual"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="20sp"
+            android:textSize="20sp"
+            android:textStyle="normal"/>
+
+        <ImageView
+            android:layout_width="200sp"
+            android:layout_height="200sp"
+            android:layout_marginTop="50sp"
+            android:src="@drawable/pooh_piglet"
+            android:id="@+id/tour2_id"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@id/tour2_id"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="casual"
+            android:text="The world knows, &quot;You can always find a friend in a book&quot; \n Well, this application allows you to share this friend with few others"
+            android:textAlignment="center"
+            android:id="@+id/txt"/>
+
+    </RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_tour2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:drawableRight="@drawable/ic_arrow_forward_black_24dp"
+        android:id="@+id/button32"/>
+
+
+
+</RelativeLayout>

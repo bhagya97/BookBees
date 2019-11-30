@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:context=".Tour1">
+
+
+    <ImageView
+        android:id="@+id/img_book"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:scaleType="center"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/bee_logo" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_book"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/quattrocento_sans"
+        android:paddingBottom="10dp"
+        android:text="@string/book_bees"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rel1"
+        android:layout_below="@id/textView3">
+
+        <ImageView
+            android:id="@+id/clip"
+            android:layout_width="53sp"
+            android:layout_height="60sp"
+            android:layout_marginLeft="85sp"
+            android:src="@drawable/beees" />
+        <TextView
+            android:id="@+id/text_t1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="300sp"
+            android:layout_marginTop="22sp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginRight="12sp"
+            android:layout_marginBottom="8sp"
+            android:fontFamily="@font/montserrat"
+            android:text="Do you love reading? "
+
+            android:textAlignment="center"
+
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel1">
+
+        <ImageView
+            android:id="@+id/clip2"
+            android:layout_width="53sp"
+            android:layout_height="60sp"
+            android:layout_marginLeft="85sp"
+            android:src="@drawable/beees" />
+        <TextView
+            android:id="@+id/text_t2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="300sp"
+            android:layout_marginTop="22sp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginRight="12sp"
+            android:layout_marginBottom="8sp"
+            android:fontFamily="@font/montserrat"
+            android:textStyle="bold"
+            android:text="Do you love socializing? "/>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/montserrat"
+        android:text="If your answer is YES, then this is the perfect app for you!" />
+
+
+    <Button
+        android:id="@+id/button23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="108dp"
+        android:layout_marginRight="108dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/Grey"
+        android:drawableRight="@drawable/ic_arrow_forward_black_24dp"
+        android:text="@string/next_tour1" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/button23"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="154dp"
+        android:layout_marginLeft="58dp"
+        android:layout_marginBottom="119dp"
+        android:text="Skip tour"
+        android:id="@+id/skiptour1"/>
+
+
+</RelativeLayout>
