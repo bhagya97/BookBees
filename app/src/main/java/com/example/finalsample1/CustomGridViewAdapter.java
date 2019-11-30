@@ -9,49 +9,39 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class CustomGridViewAdapter extends BaseAdapter {
+import org.w3c.dom.Text;
+
+import java.io.Serializable;
+import java.io.SerializablePermission;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CustomGridViewAdapter extends BaseAdapter implements Serializable {
 
 
-    public Integer[] mThumbIds = {
-            R.drawable.common_google_signin_btn_icon_disabled,
-            R.drawable.common_google_signin_btn_icon_disabled, R.drawable.common_google_signin_btn_icon_disabled,
-            R.drawable.common_google_signin_btn_icon_disabled, R.drawable.common_google_signin_btn_icon_disabled,
-            R.drawable.common_google_signin_btn_icon_disabled,
-            R.drawable.common_google_signin_btn_icon_disabled,
-            R.drawable.common_google_signin_btn_icon_disabled, R.drawable.common_google_signin_btn_icon_disabled,
-            R.drawable.common_google_signin_btn_icon_disabled, R.drawable.common_google_signin_btn_icon_disabled,
-            R.drawable.common_google_signin_btn_icon_disabled,
-            R.drawable.common_google_signin_btn_icon_disabled,
-            R.drawable.common_google_signin_btn_icon_disabled, R.drawable.common_google_signin_btn_icon_disabled,
-            R.drawable.common_google_signin_btn_icon_disabled, R.drawable.common_google_signin_btn_icon_disabled,
-            R.drawable.common_google_signin_btn_icon_disabled,
-    };
-    public String[] mThumbNames = {
-            "Bank", "Facility", "Gym", "Facility", "Facility", "Construct",
-            "Bank", "Facility", "Gym", "Facility", "Facility", "Construct",
-            "Bank", "Facility", "Gym", "Facility", "Facility", "Construct"
-
-    };
+    List<UserDetails> userDetailsListAdapter =new ArrayList<>();
     private Context mContext;
 
     // Constructor
-    public CustomGridViewAdapter(Context c) {
-        mContext = c;
+
+    public CustomGridViewAdapter(List<UserDetails> userDetailsListAdapter, Context mContext) {
+        this.userDetailsListAdapter = userDetailsListAdapter;
+        this.mContext = mContext;
     }
 
     @Override
     public int getCount() {
-        return mThumbIds.length;
+        return userDetailsListAdapter.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mThumbIds[position];
+        return userDetailsListAdapter.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
@@ -69,7 +59,8 @@ public class CustomGridViewAdapter extends BaseAdapter {
 
             // well set up the ViewHolder
             viewHolder = new ViewHolderItem();
-            viewHolder.textViewItem = (TextView) convertView.findViewById(R.id.textView);
+            viewHolder.profileName = (TextView) convertView.findViewById(R.id.profileName);
+            viewHolder.location = (TextView) convertView.findViewById(R.id.location);
 
             viewHolder.imageViewItem = (ImageView) convertView.findViewById(R.id.imageView);
             // store the holder with the view.
@@ -83,12 +74,14 @@ public class CustomGridViewAdapter extends BaseAdapter {
         }
 
         // object item based on the position
-
+        UserDetails userDetails=(UserDetails) this.getItem(position
+        );
         // get the TextView from the ViewHolder and then set the text (item name) and tag (item ID) values
-        viewHolder.textViewItem.setText(mThumbNames[position]);
-        viewHolder.textViewItem.setTag(position);
+        viewHolder.profileName.setText(userDetails.getProfileName());
+        viewHolder.location.setText(userDetails.getProfileLocation());
+        viewHolder.profileName.setTag(position);
 
-        viewHolder.imageViewItem.setImageResource(mThumbIds[position]);
+        viewHolder.imageViewItem.setImageBitmap(userDetails.getDecodedByte());
 
 
         return convertView;
@@ -98,7 +91,8 @@ public class CustomGridViewAdapter extends BaseAdapter {
     // our ViewHolder.
 // caches our TextView
     static class ViewHolderItem {
-        TextView textViewItem;
+        TextView profileName;
+        TextView location;
         ImageView imageViewItem;
     }
 
