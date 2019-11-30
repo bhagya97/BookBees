@@ -20,4 +20,6 @@
     <string name="hello_blank_fragment1">Search Screen</string>
     <string name="hello_blank_fragment2">Profile Screen</string>
 
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDNWkv_7nXBZfd2nBN1jUeW7HdpEhYyyAQ</string>
+
 </resources>
