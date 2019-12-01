@@ -25,6 +25,7 @@ import java.util.Map;
 public class Genres extends AppCompatActivity implements View.OnClickListener{
 
     List<String> selected_genre_list = new ArrayList<>();
+    String profileGenre="";
     ChipGroup chipGroup;
     Button btn, btn_skip;
     String genresSelected ="";
@@ -63,10 +64,13 @@ public class Genres extends AppCompatActivity implements View.OnClickListener{
                         if (chip.isChecked() ) {
                             String string = chip.getText().toString();
                             selected_genres[i] = string;
+                            profileGenre += string +",";
                         }
                         i++;
                     }
                     selected_genre_list = Arrays.asList(selected_genres);
+                    profileGenre=profileGenre.substring(0,profileGenre.length() - 1);
+                    registerUserDetails.setUserGenre(profileGenre);
 
                     System.out.println("AA:"+registerUserDetails.getProfileImage());
                     System.out.println("AA:"+registerUserDetails.getProfileName());
