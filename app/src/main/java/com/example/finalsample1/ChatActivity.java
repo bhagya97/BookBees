@@ -67,7 +67,7 @@ public class ChatActivity extends AppCompatActivity {
     private ImageButton vchatAddfiles;
     private ImageButton vchatSendmsg;
     private EditText vChatMessage;
-    private CircleImageView displayPic;
+    private ImageView displayPic;
 
     private RecyclerView vMessageList;
 
@@ -123,7 +123,7 @@ public class ChatActivity extends AppCompatActivity {
         vchatAddfiles = (ImageButton) findViewById(R.id.addfiles);
         vchatSendmsg = (ImageButton) findViewById(R.id.sendmsg);
         vChatMessage = (EditText) findViewById(R.id.entermsg);
-        displayPic = (CircleImageView) findViewById( R.id.displayimage );
+        displayPic = (ImageView) findViewById( R.id.displayimage );
 
         vMessageAdapter = new MessageAdapter(vMessages);
 

@@ -105,25 +105,23 @@ public class HomePage extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         super.onOptionsItemSelected(item);
 
-        if (item.getItemId() == R.id.logout){
-
-            FirebaseAuth.getInstance().signOut();
-            sendtoStart();
-
-        }
-        else if (item.getItemId() == R.id.listUsers){
-
-            Intent intentStart = new Intent(HomePage.this, AllUsers.class);
-            startActivity(intentStart);
-            //finish();
-        }
-        else if (item.getItemId() == R.id.vsettings){
+        if (item.getItemId() == R.id.vsettings){
 
             Intent intentStart = new Intent(HomePage.this, settings.class);
             startActivity(intentStart);
             //finish();
 
         }
+        else if (item.getItemId() == R.id.bookSwap){
+            Toast.makeText( HomePage.this, "Still in Progress", Toast.LENGTH_LONG ).show();
+            Intent intentStart = new Intent(HomePage.this, AllUsers.class);
+            startActivity(intentStart);
+        }
+        else if (item.getItemId() == R.id.logout){
+            FirebaseAuth.getInstance().signOut();
+            sendtoStart();
+        }
+
 
         return true;
     }

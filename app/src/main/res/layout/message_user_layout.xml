@@ -10,7 +10,7 @@
         app:civ_border_width="2dp"-->
 
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileimage"
         android:layout_width="56dp"
         android:layout_height="56dp"

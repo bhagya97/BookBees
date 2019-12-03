@@ -2,12 +2,16 @@ package com.example.finalsample1;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -48,7 +52,7 @@ public class CustomGridViewAdapter extends BaseAdapter implements Serializable {
     public View getView(int position, View convertView, ViewGroup parent) {
 
 
-        ViewHolderItem viewHolder;
+        final ViewHolderItem viewHolder;
 
 
         if (convertView == null) {
@@ -61,9 +65,8 @@ public class CustomGridViewAdapter extends BaseAdapter implements Serializable {
             viewHolder = new ViewHolderItem();
             viewHolder.profileName = (TextView) convertView.findViewById(R.id.profileName);
             viewHolder.location = (TextView) convertView.findViewById(R.id.location);
-
             viewHolder.imageViewItem = (ImageView) convertView.findViewById(R.id.imageView);
-            // store the holder with the view.
+            viewHolder.messageBtn = (Button) convertView.findViewById(R.id.messageBtn);
             convertView.setTag(viewHolder);
 
 
@@ -74,19 +77,30 @@ public class CustomGridViewAdapter extends BaseAdapter implements Serializable {
         }
 
         // object item based on the position
-        UserDetails userDetails=(UserDetails) this.getItem(position
+        final UserDetails userDetails=(UserDetails) this.getItem(position
         );
         // get the TextView from the ViewHolder and then set the text (item name) and tag (item ID) values
         viewHolder.profileName.setText(userDetails.getProfileName());
         viewHolder.location.setText(userDetails.getProfileLocation());
         viewHolder.profileName.setTag(position);
-
         viewHolder.imageViewItem.setImageBitmap(userDetails.getDecodedByte());
-
+        viewHolder.messageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String profileName = userDetails.getProfileName();
+                System.out.println("check pro:"+profileName);
+                Intent i = new Intent(mContext,ChatActivity.class);
+                i.putExtra("user_name",profileName);
+                i.putExtra("user_id",userDetails.getUserUid());
+                mContext.startActivity(i);
+            }
+        });
 
         return convertView;
 
     }
+
+
 
     // our ViewHolder.
 // caches our TextView
@@ -94,6 +108,7 @@ public class CustomGridViewAdapter extends BaseAdapter implements Serializable {
         TextView profileName;
         TextView location;
         ImageView imageViewItem;
+        Button messageBtn;
     }
 
 
