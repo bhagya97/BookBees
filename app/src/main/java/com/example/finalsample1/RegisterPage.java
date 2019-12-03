@@ -128,7 +128,7 @@ public class RegisterPage extends AppCompatActivity {
 
                 } else {
                     regProgress.hide();
-                    Toast.makeText(RegisterPage.this,"ERROR!!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterPage.this,"Please try again by giving correct email and password.", Toast.LENGTH_LONG).show();
                 }
             }
         });

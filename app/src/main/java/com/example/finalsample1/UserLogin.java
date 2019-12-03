@@ -91,7 +91,7 @@ public class UserLogin extends AppCompatActivity {
             }
             else {
                 loginProgress.hide();
-                Toast.makeText(UserLogin.this,"ERROR!!", Toast.LENGTH_LONG).show();
+                Toast.makeText(UserLogin.this,"Please enter valid Email.", Toast.LENGTH_LONG).show();
             }
         }
     });

@@ -9,16 +9,27 @@
 
     <include layout="@layout/menu_bar" android:id="@+id/loginBar"/>
 
-    <TextView
-        android:id="@+id/textView2"
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="82dp"
-        android:layout_marginTop="182dp"
+        android:layout_marginTop="50sp"
+        android:src="@drawable/bee_logo"
+        android:id="@+id/logo_id"
+        android:layout_centerHorizontal="true"/>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_below="@id/logo_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/welcome_to_start"
+        android:layout_marginTop="20dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="24sp"
         android:visibility="visible"
+        android:layout_centerHorizontal="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

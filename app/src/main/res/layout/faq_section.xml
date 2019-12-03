@@ -1,71 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="208dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="165dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginBottom="642dp"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:text="FAQ "
         android:textSize="25sp" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="346dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="122dp"
+        android:padding="10dp"
+        android:textSize="15sp"
         android:text="What is Book-Bees? \nBook - Bees is a networking application that allows you to connect with other interesting bibliophiles and book lovers from around the world. Basically, the idea is to create an application that a book lover can use to connect, communicate, and build real-life relationships with other interesting book lovers. " />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="344dp"
-        android:layout_height="101dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="258dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="15sp"
         android:text="What is swap section? \nUsers can exchange the books that they have been hoarding for years in their bookshelves. They can swap it with their close firends within the same location " />
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="347dp"
-        android:layout_height="111dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="380dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="15sp"
         android:text="What is a Book-bee library? \nUsers will be able to build a digital library of books they own, which helps other users to find out the books easily. If there is any book of the user’s interest, then the user can communicate with that person through the chat option. " />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="337dp"
-        android:layout_height="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="29dp"
-        android:layout_marginBottom="127dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="15sp"
         android:text="What is the aim of Book-Bees? \nThe application focuses on the wide community of bibliophiles around the world who love to collect and read books. It allows them to connect, communicate, and share their books with others." />
 
     <Button
         android:id="@+id/button_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:layout_marginBottom="59dp"
         android:text="Back" />
 
-</RelativeLayout>
+</LinearLayout>

@@ -12,12 +12,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -32,6 +38,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     public static final int MSG_RIGHT=0;
     public static final int MSG_LEFT=1;
     FirebaseUser fuser;
+
+
+    private DatabaseReference vRootref = FirebaseDatabase.getInstance().getReference();
+
 
     public MessageAdapter(List<Displaymsgs> vMessageList) {
         this.vMessageList = vMessageList;
@@ -59,6 +69,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         public ImageView profileImage, userImage;
         public ImageView messageImage;
 
+
+
+
         public MessageViewHolder(View view) {
             super(view);
 
@@ -67,13 +80,18 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             messageImage = (ImageView) view.findViewById(R.id.chatusersentimage);
 
 //            userText = (TextView) view.findViewById(R.id.chatownmessage);
-//            userImage = (ImageView) view.findViewById(R.id.chatownimage);
+//          userImage = (ImageView) view.findViewById(R.id.chatownimage);
 
-        }
+
+
+
+            }
+
+
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MessageViewHolder holder, int position) {
 
         //String current_User = mAuth.getInstance().getCurrentUser().getUid();
         c = vMessageList.get(position);
@@ -107,6 +125,29 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                         .centerCrop()
                         .placeholder( R.drawable.baseline_image_black_24dp )
                         .into( holder.messageImage );
+            }
+
+            if (vMessageList.get(position).getFrom().equals(fuser.getUid())){
+                vRootref.child( "users" ).child( fuser.getUid() ).addValueEventListener( new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String encodedImage = dataSnapshot.child("dp").getValue(String.class);
+                        if (encodedImage != null) {
+                            byte[] decodedString = Base64.decode(encodedImage, Base64.DEFAULT);
+                            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                            holder.profileImage.setImageBitmap(decodedByte);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                } );
+
+            }
+            else{
+
             }
 //                if (user_from.equals( current_User )) {
 //
@@ -167,6 +208,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         fuser = mAuth.getInstance().getCurrentUser();
         //String user_from = c.getFrom();
         if (vMessageList.get(position).getFrom().equals(fuser.getUid())){
+
             Log.d( "getFrom right", vMessageList.get(position).getFrom() );
             Log.d( "Fragments-OnStart","sending right" );
             return MSG_RIGHT;

@@ -48,7 +48,7 @@ public class Find extends Fragment {
     private ImageView imageView;
     private  SearchView searchView;
     private int count;
-    private String[] columns = {"name", "books"};
+    private String[] columns = {"name", "books" , "InterestedGenre"};
 
     //list of userdetails object
 
@@ -80,7 +80,7 @@ public class Find extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Search");
+
 
         //((AppCompatActivity)getActivity()).getSupportActionBar().setCustomView(,params);
         setHasOptionsMenu(true);
@@ -93,6 +93,7 @@ public class Find extends Fragment {
         HomePage activity = (HomePage) getActivity();
         String myDataFromActivity = activity.getLastQuery();
         System.out.println("myDataFromActivity" + myDataFromActivity);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Search");
 
         if(savedInstanceState != null)
         {
@@ -173,9 +174,17 @@ public class Find extends Fragment {
                         String regex=query.substring(0, query.length() / 2)+".*";
                         Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
                         for( int i =0 ;i<columns.length;i++) {
+
                             Matcher m = p.matcher(d.child(columns[i]).getValue().toString());
                             System.out.println("Regex" + regex);
                             boolean result = m.matches();
+                            if(i == 2)
+                            {
+                                String s=d.child(columns[i]).getValue().toString();
+                                if(s.contains(query)) {
+                                    result = true;
+                                }
+                            }
                             if (result) {
                                 if(userDetailsList.isEmpty()) {
                                     UserDetails userDetails = new UserDetails();
@@ -247,7 +256,11 @@ public class Find extends Fragment {
             @Override
             public boolean onQueryTextChange(final String query) {
                 if (searchView.getQuery().length() == 0) {
-                    System.out.println("newText:" +query);
+                    userDetailsList.clear();
+                    customGridViewAdapter=new CustomGridViewAdapter(userDetailsList,getContext());
+                    saveCustomGridViewInstance = customGridViewAdapter;
+                    gridView.setAdapter(customGridViewAdapter);
+
                 }
                 else
                 {
