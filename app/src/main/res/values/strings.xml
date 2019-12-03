@@ -49,15 +49,27 @@
     <string name="suspense">Suspense</string>
     <string name="spirtuality">Spirtiuality</string>
     <string name="sports">Sports</string>
+    <string name="social">Social</string>
     <string name="thriller">Thriller</string>
     <string name="travel">Travel</string>
     <string name="young">Young Adult</string>
 
-
+    <string name="bio"></string>
+    <string name="tv_genres_title">Favorite Genres</string>
+    <string name="tv_bio_title">Bio</string>
+    <string name="genres_layout_title">Choose Your Favorite Genres!</string>
+    <string name="edit_bio">Edit Bio</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="tv_library_title">Library</string>
+    <string name="faq">FAQ</string>
+    <string name="contact_us">Contact us</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Message Screen</string>
     <string name="hello_blank_fragment1">Search Screen</string>
     <string name="hello_blank_fragment2">Profile Screen</string>
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDNWkv_7nXBZfd2nBN1jUeW7HdpEhYyyAQ</string>
 
 </resources>

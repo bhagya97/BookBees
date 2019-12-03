@@ -2,14 +2,18 @@ package com.example.finalsample1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +47,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -61,6 +67,7 @@ public class ChatActivity extends AppCompatActivity {
     private ImageButton vchatAddfiles;
     private ImageButton vchatSendmsg;
     private EditText vChatMessage;
+    private CircleImageView displayPic;
 
     private RecyclerView vMessageList;
 
@@ -116,6 +123,7 @@ public class ChatActivity extends AppCompatActivity {
         vchatAddfiles = (ImageButton) findViewById(R.id.addfiles);
         vchatSendmsg = (ImageButton) findViewById(R.id.sendmsg);
         vChatMessage = (EditText) findViewById(R.id.entermsg);
+        displayPic = (CircleImageView) findViewById( R.id.displayimage );
 
         vMessageAdapter = new MessageAdapter(vMessages);
 
@@ -134,8 +142,26 @@ public class ChatActivity extends AppCompatActivity {
 
         loadMessages();
 
+        vRootref.child( "users" ).child( vchatUser ).addValueEventListener( new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String encodedImage = dataSnapshot.child("dp").getValue(String.class);
+                if (encodedImage != null) {
+                    byte[] decodedString = Base64.decode(encodedImage, Base64.DEFAULT);
+                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                    displayPic.setImageBitmap(decodedByte);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        } );
+
         displayName = (TextView) findViewById(R.id.displayName);
         displayName.setText(chat_user_name);
+
 
         vRootref.child("chat").child(vCurrentUser).addValueEventListener(new ValueEventListener() {
             @Override

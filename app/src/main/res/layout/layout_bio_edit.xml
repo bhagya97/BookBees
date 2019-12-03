@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ProfileUpdateActivity.UpdateBio">
+
+    <RelativeLayout
+        android:id="@+id/bio_rel_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_bio"
+            android:textSize="19sp"/>
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_bio"
+        android:layout_height="250sp"
+        android:layout_width="match_parent"
+        android:layout_below="@id/bio_rel_1"
+        android:hint="Edit here"
+        android:gravity="left"
+        android:inputType="textMultiLine"
+        android:maxLength="200"
+        android:textSize="16sp"
+        android:background="@drawable/border_bottom"
+        android:layout_margin="15sp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:layout_below="@id/et_bio">
+        <include layout="@layout/layout_save_cancel"/>
+    </RelativeLayout>
+
+</RelativeLayout>

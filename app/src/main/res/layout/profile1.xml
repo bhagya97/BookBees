@@ -35,42 +35,26 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name:"
-            android:paddingTop="10sp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:id="@+id/text1"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="65dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/ed1"
-            android:background="@null" />
+
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="About Me:"
-            android:paddingTop="10sp"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:id="@+id/text2"
-            android:layout_marginTop="50sp"
-            android:layout_below="@id/ed1"/>
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:paddingTop="10sp"
+            android:text="About Me:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/ed2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="95sp"
-            android:background="@null"/>
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="70dp"
+            android:background="@null" />
 
         <Button
             android:layout_width="wrap_content"

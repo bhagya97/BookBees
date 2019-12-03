@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact us"
+        android:textSize="30sp"
+        android:id="@+id/ctus"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ctus"
+        android:id="@+id/emails"
+        android:paddingTop="50sp"
+        android:text="You can reach us through email:"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email_layout"
+        android:layout_below="@id/emails"
+        android:text="ujwal.gamil.com \nbhagya12@gmail.com"
+        android:textSize="15sp"
+        android:paddingLeft="15sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email_layout"
+        android:id="@+id/phone"
+        android:paddingTop="40sp"
+        android:text="You can reach us through phone:"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/phone_layout"
+        android:layout_below="@id/phone"
+        android:text="(+1)902-989-3011 \n(+1)902-989-3112\n(+1)903-989-1234"
+        android:textSize="15sp"
+        android:paddingLeft="15sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We would be happy to help you anytime, thank you "
+        android:layout_below="@id/phone_layout"
+        android:id="@+id/thank"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:paddingTop="20sp"/>
+
+    <Button
+        android:id="@+id/contactout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/thank"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="28dp"
+        android:text="Back" />
+
+</RelativeLayout>

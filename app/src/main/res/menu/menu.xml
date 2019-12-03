@@ -6,6 +6,10 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     android:id="@+id/listUsers"
     android:title="All Users" />
 
+    <item
+        android:id="@+id/vsettings"
+        android:title="Settings" />
+
 <item
     android:id="@+id/logout"
     android:title="@string/logout" />

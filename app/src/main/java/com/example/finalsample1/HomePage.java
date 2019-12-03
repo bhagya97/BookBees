@@ -21,6 +21,16 @@ public class HomePage extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Toolbar mainBar;
     private BottomNavigationView bottomNavigationView;
+    private String lastQuery;
+
+
+    public String getLastQuery() {
+        return lastQuery;
+    }
+
+    public void setLastQuery(String lastQuery) {
+        this.lastQuery = lastQuery;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +41,7 @@ public class HomePage extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment,new Message());
         fragmentTransaction.commit();
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -104,6 +114,12 @@ public class HomePage extends AppCompatActivity {
         else if (item.getItemId() == R.id.listUsers){
 
             Intent intentStart = new Intent(HomePage.this, AllUsers.class);
+            startActivity(intentStart);
+            //finish();
+        }
+        else if (item.getItemId() == R.id.vsettings){
+
+            Intent intentStart = new Intent(HomePage.this, settings.class);
             startActivity(intentStart);
             //finish();
 

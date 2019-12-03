@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/settingsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+       />
+
+    <ImageView
+        android:id="@+id/firstimage"
+        android:layout_width="86dp"
+        android:layout_height="96dp"
+        android:layout_below="@+id/settingsTitle"
+        app:srcCompat="@drawable/contact_foreground" />
+
+
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settingsTitle"
+        android:layout_alignStart="@id/firstimage"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="102dp"
+        android:layout_marginLeft="102dp"
+        android:layout_marginTop="29dp"
+        android:baselineAligned="false"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="click"
+        android:text="@string/contact_us"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/faq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/contact"
+        android:clickable="true"
+        android:text="@string/faq"
+        android:textSize="25sp" />
+
+    <ImageView
+        android:id="@+id/faqimage"
+        android:layout_width="98dp"
+        android:layout_height="69dp"
+        android:layout_below="@+id/firstimage"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="click"
+        app:srcCompat="@drawable/faq" />
+
+    <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+            android:layout_marginLeft="150sp"
+            android:layout_marginTop="300sp"
+            android:text="Logout" />
+
+    <Button
+        android:id="@+id/btn_delAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="150sp"
+        android:layout_marginTop="400sp"
+        android:text="Remove Account" />
+
+
+</RelativeLayout>

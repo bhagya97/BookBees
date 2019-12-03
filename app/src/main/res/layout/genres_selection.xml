@@ -241,7 +241,7 @@
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/sports"
+                android:text="@string/social"
                 app:chipBackgroundColor="@color/yellow"
                 style="@style/Widget.MaterialComponents.Chip.Action"
                 android:checkable="true"

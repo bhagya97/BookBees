@@ -7,4 +7,11 @@
     <color name="Black">#000000</color>
     <color name="Grey">#C3C3C3</color>
     <color name="yellow">#ffe01b</color>
+    <color name="colorSecondary">#368083</color>
+    <color name="colorSecondaryLight">#68b0b2</color>
+    <color name="colorSecondaryDark">#005356</color>
+    <color name="colorPrimaryText">#000000</color>
+    <color name="colorSecondaryText">#ffffff</color>
+    <color name="grey">#bfbfbf</color>
+    <color name="white">#fff</color>
 </resources>

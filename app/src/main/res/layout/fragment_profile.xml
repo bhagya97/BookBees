@@ -1,14 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Profile">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment2" />
+<!--    <ScrollView-->
+<!--        android:id="@+id/scrollview1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
 
+            <RelativeLayout
+                android:id="@+id/display_picture_name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient"
+                android:paddingTop="30sp"
+                android:paddingBottom="10sp">
+
+
+                <RelativeLayout
+                    android:id="@+id/profile_picture_layout"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/default_dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/profile_picture"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:civ_border_width="2dp"
+                        app:civ_border_color="@color/colorSecondary"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/display_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/profile_picture_layout"
+                    android:text=""
+                    android:layout_centerHorizontal="true"
+                    android:textSize="30sp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:textColor="@color/colorPrimaryText"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/bio_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_below="@id/display_picture_name_layout">
+
+                <TextView
+                    android:id="@+id/tv_bio_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_bio_title"
+                    android:textSize="18sp"/>
+                <ImageView
+                    android:id="@+id/bio_border"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/tv_bio_title"
+                    android:layout_marginEnd="35sp"
+                    android:src="@drawable/border_bottom"/>
+
+                <TextView
+                    android:id="@+id/tv_bio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30sp"
+                    android:layout_below="@id/bio_border"
+                    android:autoSizeTextType="uniform"
+                    android:text="@string/bio"
+                    android:textSize="15sp"/>
+                <ImageView
+                    android:id="@+id/iv_bio_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_edit"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/genres_layout"
+                android:layout_below="@id/bio_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp">
+
+                <TextView
+                    android:id="@+id/tv_genres_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_genres_title"
+                    android:textSize="18sp"/>
+                <ImageView
+                    android:id="@+id/genres_border"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/tv_genres_title"
+                    android:layout_marginEnd="35sp"
+                    android:src="@drawable/border_bottom"/>
+
+                <ImageView
+                    android:id="@+id/iv_genres_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_edit"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/genres_display_layout"
+                android:layout_below="@id/genres_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp">
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/genres_chipgroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </com.google.android.material.chip.ChipGroup>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/library_layout"
+                android:layout_below="@id/genres_display_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp">
+
+                <TextView
+                    android:id="@+id/tv_library_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_library_title"
+                    android:textSize="18sp"/>
+                <ImageView
+                    android:id="@+id/library_border"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/tv_library_title"
+                    android:layout_marginEnd="35sp"
+                    android:src="@drawable/border_bottom"/>
+
+                <ImageView
+                    android:id="@+id/iv_library_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_edit"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/library_layout">
+                <GridView
+                    android:id="@+id/grid_library"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="3"
+                    android:horizontalSpacing="1sp"
+                    android:verticalSpacing="1sp"
+                    android:gravity="center"
+                    android:stretchMode="columnWidth"
+                    android:isScrollContainer="false"/>
+        </RelativeLayout>
+<!--        </LinearLayout>-->
 </RelativeLayout>

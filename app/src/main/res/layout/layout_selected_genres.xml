@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.Chip android:id="@+id/chip_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:chipBackgroundColor="@color/yellow"
+    android:theme="@style/ProfileTheme"
+    android:checkable="false"
+    android:checked="false"
+    android:text="default"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+</com.google.android.material.chip.Chip>

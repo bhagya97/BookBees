@@ -3,6 +3,8 @@ package com.example.finalsample1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.os.Bundle;
 
@@ -14,7 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.provider.ContactsContract;
 import android.provider.Settings;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,6 +47,7 @@ public class Message extends Fragment {
     private DatabaseReference mConvDatabase;
     private DatabaseReference mMessageDatabase;
     private DatabaseReference mUsersDatabase;
+    private DatabaseReference mRootref;
 
     private FirebaseAuth mAuth;
 
@@ -190,7 +195,7 @@ public class Message extends Fragment {
 
                     }
 
-            });
+                });
 
                 System.out.println( "Step2 - MessageFragment" );
 
@@ -201,6 +206,8 @@ public class Message extends Fragment {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
+                        CircleImageView userImageView = (CircleImageView) mMainView.findViewById(R.id.user_single_image);
+
                         if (dataSnapshot != null) {
 
                             System.out.println(dataSnapshot);
@@ -210,7 +217,7 @@ public class Message extends Fragment {
 
 
                                 final String userName = dataSnapshot.child( "name" ).getValue().toString();
-                                String userThumb = dataSnapshot.child( "thumb_image" ).getValue().toString();
+                                //String userThumb = dataSnapshot.child( "thumb_image" ).getValue().toString();
 
                                 System.out.println( userName );
 
@@ -226,7 +233,9 @@ public class Message extends Fragment {
                                 }
 
                                 holder.setName( userName );
-                                holder.setUserImage( userThumb, getContext() );
+                                //holder.setUserImage( userThumb, getContext() );
+                                holder.setUserImage( dataSnapshot );
+
 
                                 holder.mView.setOnClickListener( new View.OnClickListener() {
                                     @Override
@@ -342,6 +351,16 @@ public class Message extends Fragment {
         }
 
 
+        public void setUserImage(DataSnapshot dataSnapshot) {
+
+            CircleImageView userImageView = (CircleImageView) mView.findViewById(R.id.user_single_image);
+            String encodedImage = dataSnapshot.child("dp").getValue(String.class);
+            if (encodedImage != null) {
+                byte[] decodedString = Base64.decode(encodedImage, Base64.DEFAULT);
+                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                userImageView.setImageBitmap(decodedByte);
+            }
+        }
     }
 
 }
